@@ -1,7 +1,8 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
 metadata:
   name: {{ template "helm-guestbook.fullname" . }}
+  namespace: {{ template "helm-guestbook.fullname" . }}
   labels:
     app: {{ template "helm-guestbook.name" . }}
     chart: {{ template "helm-guestbook.chart" . }}
@@ -50,3 +51,27 @@ spec:
       tolerations:
 {{ toYaml . | indent 8 }}
     {{- end }}
+  minReadySeconds: 30
+  strategy:
+    canary: #Indicates that the rollout should use the Canary strategy
+      analysis:
+        templates:
+        - templateName: success-rate
+          clusterScope: true
+        startingStep: 2 # delay starting analysis run until setWeight: 40%
+        args:
+        - name: service-name
+          value: {{ template "helm-guestbook.fullname" . }}
+      maxSurge: "25%"
+      maxUnavailable: 0
+      canaryService: guestbook-canary-service
+      stableService: {{ template "helm-guestbook.fullname" . }}
+      trafficRouting:
+        nginx:
+          # The referenced ingress will be injected with a custom action annotation, directing
+          # the Nginx to split traffic between the canary and stable Service using headers
+          stableIngress: {{ template "helm-guestbook.fullname" . }}
+          annotationPrefix: nginx.ingress.kubernetes.io # optional
+          additionalIngressAnnotations:   # optional
+            canary-by-header: Region
+            canary-by-header-value: aspc|eu
