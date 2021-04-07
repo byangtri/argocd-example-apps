@@ -1,0 +1,16 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: {{ template "helm-guestbook.fullname" . }}
+  namespace: prometheus
+  labels:
+    team: {{ template "helm-guestbook.name" . }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ template "helm-guestbook.name" . }}
+  namespaceSelector:
+    any: true
+  endpoints:
+  - port: web
+  - interval: 30s
