@@ -68,9 +68,9 @@ spec:
             canary-by-header: tenantID
             canary-by-header-value: user # tenantID values
       steps:
-      - setCanaryScale:
-          weight: 50
-      - setWeight: 100
+      # - setCanaryScale:
+      #     weight: 50
+      # - setWeight: 100
       - analysis:
           templates:
           - templateName: success-rate
