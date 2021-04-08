@@ -70,7 +70,7 @@ spec:
       steps:
       # - setCanaryScale:
       #     weight: 50
-      # - setWeight: 100
+      - setWeight: 50
       - analysis:
           templates:
           - templateName: success-rate
