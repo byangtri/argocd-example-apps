@@ -30,7 +30,7 @@ ingress:
     nginx.ingress.kubernetes.io/canary-by-header: tenantID
     nginx.ingress.kubernetes.io/canary-by-header-pattern: 10|21
     nginx.ingress.kubernetes.io/canary-weight: '30'
-  path: /
+  path: /*
   # hosts:
   #   - chart-example.local
   tls: []
