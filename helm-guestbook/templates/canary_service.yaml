@@ -4,7 +4,7 @@ metadata:
   name: guestbook-canary-service
   namespace: {{ template "helm-guestbook.fullname" . }}
   labels:
-    app: {{ template "helm-guestbook.name" . }}
+    app: {{ template "helm-guestbook.name" . }}-canary
     chart: {{ template "helm-guestbook.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
@@ -16,6 +16,6 @@ spec:
       protocol: TCP
       name: http
   selector:
-    app: {{ template "helm-guestbook.name" . }}
+    app: {{ template "helm-guestbook.name" . }}-canary
     release: {{ .Release.Name }}
     # version: canary
