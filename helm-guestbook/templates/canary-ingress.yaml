@@ -16,6 +16,8 @@ spec:
       - path: {{ .Values.ingress.path }}
         backend:
           # serviceName must match canary.stableService
-          serviceName: guestbook-canary-service
-          servicePort: {{ .Values.service.port }}
+          service:
+            name: guestbook-canary-service
+            port:
+              number: {{ .Values.service.port }}
 {{- end }}

@@ -16,6 +16,8 @@ spec:
       - path: {{ .Values.ingress.path }}
         backend:
           # serviceName must match canary.stableService
-          serviceName: {{ template "helm-guestbook.fullname" . }}
-          servicePort: {{ .Values.service.port }}
+          service:
+            name: {{ template "helm-guestbook.fullname" . }}
+            port:
+              number: {{ .Values.service.port }}
 {{- end }}
