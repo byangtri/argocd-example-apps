@@ -33,7 +33,7 @@ ingress:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/canary: 'true'
     nginx.ingress.kubernetes.io/canary-by-header: 'tenants'
-    nginx.ingress.kubernetes.io/canary-by-header-pattern: '11|21'
+    nginx.ingress.kubernetes.io/canary-by-header-pattern: 'a|b'
   path: /
   # hosts:
   #   - chart-example.local
