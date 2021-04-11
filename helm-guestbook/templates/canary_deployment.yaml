@@ -4,7 +4,7 @@ metadata:
   name: {{ template "helm-guestbook.fullname" . }}-canary
   namespace: {{ template "helm-guestbook.fullname" . }}
   labels:
-    app: {{ template "helm-guestbook.name" . }}-canary
+    # app: {{ template "helm-guestbook.name" . }}-canary
     chart: {{ template "helm-guestbook.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
