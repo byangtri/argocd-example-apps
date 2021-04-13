@@ -7,12 +7,7 @@ replicaCount: 3
 image:
   repository: gcr.io/heptio-images/ks-guestbook-demo
   tag: 0.2
-  canaryTag: 0.2
   pullPolicy: IfNotPresent
-
-deployment: []
-#  annotations:
-    
 
 service:
   type: NodePort
@@ -35,8 +30,7 @@ ingress:
     nginx.ingress.kubernetes.io/canary-by-header: tenants
     nginx.ingress.kubernetes.io/canary-by-header-pattern: 10|21
   path: /
-  # hosts:
-  #   - chart-example.local
+  host: guestbook.52.255.162.155.nip.io
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:
