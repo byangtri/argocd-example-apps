@@ -32,11 +32,11 @@ ingress:
   canary:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/canary: "true"
-    nginx.ingress.kubernetes.io/canary-by-header: "always"
-    nginx.ingress.kubernetes.io/canary-by-header-value: "tenant"
+    nginx.ingress.kubernetes.io/canary-by-header: "tenants"
+    nginx.ingress.kubernetes.io/canary-by-header-pattern: "10|11|12"
   path: /
-  # hosts:
-  #   - chart-example.local
+  host:
+    - guestbook.3.130.54.83.nip.io
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:
