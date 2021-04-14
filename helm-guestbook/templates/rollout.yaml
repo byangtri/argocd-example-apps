@@ -17,10 +17,6 @@ spec:
       release: {{ .Release.Name }}
   template:
     metadata:
-      # {{- with .Values.deployment.annotations }}
-      # annotations:
-      #   {{- toYaml . | nindent 8 }}
-      # {{- end }}
       labels:
         app: {{ template "helm-guestbook.name" . }}
         release: {{ .Release.Name }}
