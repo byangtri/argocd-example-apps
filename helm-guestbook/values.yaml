@@ -30,7 +30,7 @@ ingress:
     nginx.ingress.kubernetes.io/canary-by-header: tenants
     nginx.ingress.kubernetes.io/canary-by-header-pattern: 10|21
   path: /
-  host: guestbook.52.255.162.155.nip.io
+  host: guestbook.18.223.163.42.nip.io
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:
