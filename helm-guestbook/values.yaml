@@ -33,7 +33,7 @@ ingress:
 
 metrics:
   prometheus:
-    address: "http://52.149.216.245:9090"
+    address: "http://a0179abbebc504fe1a02cc2868d10d20-1436141555.us-east-2.elb.amazonaws.com:9090/"
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
