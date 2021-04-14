@@ -17,10 +17,6 @@ spec:
       release: {{ .Release.Name }}
   template:
     metadata:
-      # {{- with .Values.deployment.annotations }}
-      # annotations:
-      #   {{- toYaml . | nindent 8 }}
-      # {{- end }}
       labels:
         app: {{ template "helm-guestbook.name" . }}
         release: {{ .Release.Name }}
@@ -79,6 +75,6 @@ spec:
           args:
           - name: service-name
             value: {{ template "helm-guestbook.fullname" . }}
-      # Pauses indefinitely until manually resumed
       - setWeight: 50
+      # Pauses indefinitely until manually resumed
       - pause: {}
