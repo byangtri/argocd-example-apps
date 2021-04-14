@@ -6,7 +6,7 @@ replicaCount: 3
 
 image:
   repository: gcr.io/heptio-images/ks-guestbook-demo
-  tag: 0.2
+  tag: 0.1
   pullPolicy: IfNotPresent
 
 # deployment:
@@ -30,11 +30,15 @@ ingress:
     # nginx.ingress.kubernetes.io/canary-by-header-pattern: "aspc|eu"
     # kubernetes.io/tls-acme: "true"
   path: /
-  host: guestbook.52.255.162.155.nip.io
+  host: guestbook.18.223.163.42.nip.io
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:
   #      - chart-example.local
+
+metrics:
+  prometheus:
+    address: "http://52.149.216.245:9090"
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
