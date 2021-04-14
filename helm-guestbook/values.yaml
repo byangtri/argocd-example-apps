@@ -24,11 +24,11 @@ ingress:
     # nginx.ingress.kubernetes.io/canary-by-header: "Region"
     # nginx.ingress.kubernetes.io/canary-by-header-pattern: "aspc|eu"
     # kubernetes.io/tls-acme: "true"
-  canary:
-    kubernetes.io/ingress.class: nginx
-    nginx.ingress.kubernetes.io/canary: 'true'
-    nginx.ingress.kubernetes.io/canary-by-header: tenants
-    nginx.ingress.kubernetes.io/canary-by-header-pattern: 10|21
+  # canary:
+  #   kubernetes.io/ingress.class: nginx
+  #   nginx.ingress.kubernetes.io/canary: 'true'
+  #   nginx.ingress.kubernetes.io/canary-by-header: tenants
+  #   nginx.ingress.kubernetes.io/canary-by-header-pattern: 10|21
   path: /
   host: guestbook.18.223.163.42.nip.io
   tls: []
